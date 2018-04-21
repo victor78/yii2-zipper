@@ -1,5 +1,6 @@
 {
     "name": "victor78/yii2-zipper",
+    "version": "0.0.2",
     "description": "Yii2-Zipper is archiving component for Yii2.",
     "keywords": [
         "yii2",
