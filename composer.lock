@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7961b258458bdceaaa33965ccbf7ac87",
+    "content-hash": "123a048a679af8ea2427a33c2094d68e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -559,16 +559,16 @@
         },
         {
             "name": "victor78/zippy-ext",
-            "version": "0.0.1",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Victor78/ZippyExt.git",
-                "reference": "afc5f6594dbf52e27edecdc920eb808b15366d1a"
+                "url": "https://github.com/victor78/ZippyExt.git",
+                "reference": "6bc18517187d7d281ac28b6cb89c5e70f51b2f9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Victor78/ZippyExt/zipball/afc5f6594dbf52e27edecdc920eb808b15366d1a",
-                "reference": "afc5f6594dbf52e27edecdc920eb808b15366d1a",
+                "url": "https://api.github.com/repos/victor78/ZippyExt/zipball/6bc18517187d7d281ac28b6cb89c5e70f51b2f9f",
+                "reference": "6bc18517187d7d281ac28b6cb89c5e70f51b2f9f",
                 "shasum": ""
             },
             "require": {
@@ -602,7 +602,7 @@
                 "zip",
                 "zippy"
             ],
-            "time": "2018-04-05T12:54:51+00:00"
+            "time": "2018-04-20T22:58:06+00:00"
         },
         {
             "name": "yiisoft/yii2",

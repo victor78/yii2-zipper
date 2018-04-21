@@ -16,7 +16,7 @@ return [
     'components' => [
         'zipper' => [
             'class' => 'Victor78\Zipper\Zipper',
-            'type' => '7za'
+            'type' => '7zip'
         ],
         'mailer' => [
             'useFileTransport' => true,

@@ -6,29 +6,41 @@ use yii\base\Component;
 
 use Victor78\ZippyExt\Zippy;
 
-class Zipper extends Component
+class Zipper extends Component implements ZipperInterface
 {
     protected $zippy;
     public $type = 'zip';
+    public $ext;
     public $password;
     
     
     public function init() 
     {
-        $this->zippy = Zippy::load();        
+        $this->zippy = Zippy::load();
+        if (!$this->ext){
+            $this->ext = $this->type;
+            if ($this->ext == '7zip'){
+                $this->ext = 'zip';
+            }
+        }
     }
     
-    public function setType($type)
+    public function setType(string $type)
     {
         $this->type = $type;
     }
     
-    public function setPassword($password)
+    public function setExt(string $ext)
+    {
+        $this->ext = $ext;
+    }
+    
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }
     
-    public function create($path, $files = null, $recursive = true, $type = null, $password = null)
+    public function create(string $path, array $files = null, bool $recursive = true, string $type = null, string $password = null)
     {
         return $this->zippy->create($path, $files, $recursive, 
             $type ? $type : $this->type, 

@@ -20,15 +20,15 @@
         }
     ],    
     "support": {
-        "issues": "https://github.com/Victor78/YiiZipper/issues",
-        "wiki": "https://github.com/Victor78/YiiZipper/wiki",
-        "source": "https://github.com/Victor78/YiiZipper"
+        "issues": "https://github.com/victor78/yii2-zipper/issues",
+        "wiki": "https://github.com/victor78/yii2-zipper/wiki",
+        "source": "https://github.com/victor78/yii2-zipper"
     },
 
     "require": {
         "php": ">=7.0",
         "yiisoft/yii2": "*",
-        "victor78/zippy-ext": "0.0.1"
+        "victor78/zippy-ext": "^0.0.3"
     },
 
     "autoload": {
