@@ -1,6 +1,6 @@
 {
     "name": "victor78/yii2-zipper",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Yii2-Zipper is archiving component for Yii2.",
     "keywords": [
         "yii2",
@@ -29,7 +29,7 @@
     "require": {
         "php": ">=7.0",
         "yiisoft/yii2": "*",
-        "victor78/zippy-ext": "^0.0.3"
+        "victor78/zippy-ext": "~0.0.3"
     },
 
     "autoload": {
