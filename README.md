@@ -8,11 +8,13 @@ __English__:
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [How to use](#how-to-use)
+* [Requirements](#requirements)
 
 __Русский__:
 * [Установка](https://github.com/victor78/yii2-zipper#%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0)
 * [Настройка](https://github.com/victor78/yii2-zipper#%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0)
 * [Как использовать](https://github.com/victor78/yii2-zipper#%D0%9A%D0%B0%D0%BA-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C)
+* [Требования](https://github.com/victor78/yii2-zipper#%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
 
 ## Installation
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
@@ -82,6 +84,11 @@ You can leave out properties in the config and the parameters in the methods at 
 
 Both this methods return Archive object. You can find the details about how to use this object and other information in documentation of [ZippyExt](https://github.com/victor78/ZippyExt) libruary.
 
+## Requirements
+* For zip type Zipper try to use console command zip or php zip extension, so one of them is required on server for zipping.
+* For tar, tar.gz, tar.bz2 Zipper try to use GNU tar and BSD tar, so one ofo them is required on server for these ways of arching.
+* For zipping by 7zip, the 7za utiliy is required on server. 
+
 ## Установка
 Предпочтительным способом установки является при помощи [composer](http://getcomposer.org/download/).
 
@@ -143,7 +150,12 @@ $sevenZipArchiveEncrypted = Yii::$app->zipper->open('/tmp/archive.zip', '7zip', 
 $zipArchive->extract('/tmp/extracted/');
 ```
 Если вы настроили компонент Zipper с опциональными свойствами 'type' и 'password', они будут использованы как дефолтные четвертый и пятый параметры с методе create и второй и третий параметры в методе open.
-Если эти параметры в этих методах указываются явно, то они переписывают свойствах из конфига. 
-Вы можете опустить свойства из конфига и параметры в методах вообще - в таком случае Zipper попытается понять какой именно адаптер самостоятельно, но это точно не будет работать в случае zip архива, созданного при помощи 7zip.
+Если эти параметры в этих методах указываются явно, то они переписывают свойства из конфига. 
+Вы можете опустить свойства из конфига и параметры в методах вообще - в таком случае Zipper попытается самостоятельно понять какой именно адаптер какого архиватора использовать, но это точно не будет работать в случае zip архива, созданного при помощи 7zip.
 
 Оба метода возвращают объект Archive. Вы можете найти детали о том, как использовать данный объект и другую информацию в документации к библотеке [ZippyExt](https://github.com/victor78/ZippyExt).
+
+## Требования
+* Для архивирования в чистый zip используется утилита zip или расширение PHP для zip, так что или утилита, или расширение должны быть установлены на сервере для упавки и разупаковки zip.
+* Для tar, tar.gz, tar.bz2 Zipper пытается использовать GNU tar или BSD tar, один из них должен быть установлен на сервере для этих типов архивов.
+* Для упаковки/разупаковки zip при помощи 7zip, на сервере должа быть установлена утилита 7za.
