@@ -2,17 +2,15 @@
 
 namespace tests\unit;
 
+require_once 'ZipperTesting.php';
+
 class ZipperTarTest extends ZipperTesting
 {
-    public function __construct() {
-        parent::__construct();
-        $this->ext = 'tar';
-        $this->zipper->setType('tar');
-        echo "Tar inflator version: " . $this->zipper->getInflatorVersion() . PHP_EOL;
-        echo "Tar deflator version: " . $this->zipper->getDeflatorVersion() . PHP_EOL;
+    public $type = 'tar';
+    public $ext = 'tar';
+
+    public function testRemoveMembersWithPassword()
+    {
+        $this->markTestSkipped('Tar adapter does not support password protection.');
     }
-    
-    public function testRemoveMembersWithPassword() {
-        $this->assertTrue(true);
-    }    
 }

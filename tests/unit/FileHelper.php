@@ -7,11 +7,19 @@ class FileHelper
     public $arenaDir;
     public $archiveDir;
     
-    public function __construct() 
+    public function __construct()
     {
         $this->assetsDir = $GLOBALS['assets'];
         $this->arenaDir = $GLOBALS['files_arena'];
         $this->archiveDir = $GLOBALS['archives_arena'];
+
+        if (!is_dir($this->arenaDir)) {
+            mkdir($this->arenaDir, 0777, true);
+        }
+
+        if (!is_dir($this->archiveDir)) {
+            mkdir($this->archiveDir, 0777, true);
+        }
     }
     
     static public function create()

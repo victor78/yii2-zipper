@@ -2,11 +2,10 @@
 
 namespace tests\unit;
 
+require_once 'ZipperTesting.php';
+
 class Zipper7zipTest extends ZipperTesting
 {
-    
-    public function __construct() {
-        parent::__construct();
-        $this->zipper->setType('7zip');
-    }
+    public $type = '7zip';
+    public $ext = 'zip';
 }

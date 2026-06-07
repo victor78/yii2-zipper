@@ -1,34 +1,56 @@
 # Yii2-Zipper
+
+[![CI](https://github.com/victor78/yii2-zipper/actions/workflows/ci.yml/badge.svg)](https://github.com/victor78/yii2-zipper/actions/workflows/ci.yml)
+[![Latest Stable Version](https://poser.pugx.org/victor78/yii2-zipper/v/stable)](https://packagist.org/packages/victor78/yii2-zipper)
+[![License](https://poser.pugx.org/victor78/yii2-zipper/license)](https://packagist.org/packages/victor78/yii2-zipper)
+[![Total Downloads](https://poser.pugx.org/victor78/yii2-zipper/downloads)](https://packagist.org/packages/victor78/yii2-zipper)
+
 Archiving extension for Yii2 Framework - zip, tar, tar.gz, tar.bz2, 7zip (for zip archive with supporting passwords).
-It's shell over [ZippyExt](https://github.com/victor78/ZippyExt).
+It's a shell over [ZippyExt](https://github.com/victor78/ZippyExt).
 
 Расширение для архивации в Yii2 Framework - в виде zip, tar, tar.gz, tar.bz2, 7zip (только для zip архива - в том числе с поддержкой паролей).
 
 __English__:
+* [Requirements](#requirements)
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [How to use](#how-to-use)
-* [Requirements](#requirements)
 
 __Русский__:
+* [Требования](https://github.com/victor78/yii2-zipper#%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
 * [Установка](https://github.com/victor78/yii2-zipper#%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0)
 * [Настройка](https://github.com/victor78/yii2-zipper#%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0)
 * [Как использовать](https://github.com/victor78/yii2-zipper#%D0%9A%D0%B0%D0%BA-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C)
-* [Требования](https://github.com/victor78/yii2-zipper#%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
+
+## Requirements
+
+* PHP >= 8.1
+* [Yii2](https://www.yiiframework.com/) framework
+* [ZippyExt](https://github.com/victor78/ZippyExt) `^1.0`
+* For `zip` type — the `zip` console utility or the PHP `zip` extension.
+* For `tar`, `tar.gz`, `tar.bz2` — GNU tar or BSD tar.
+* For `7zip` — the `7za` or `7z` binary available in `PATH`.
+
+## PHP Compatibility
+
+| yii2-zipper | zippy-ext | PHP     |
+|-------------|-----------|---------|
+| 1.x         | ^1.0      | 8.1–8.3 |
+| 0.x         | ~0.0.4    | 7.0+    |
 
 ## Installation
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this extension is through [composer](https://getcomposer.org/download/).
 
 Either run
 
 ```
-php composer.phar require --prefer-dist victor78/yii2-zipper:"~0.0.4"
+composer require victor78/yii2-zipper:"^1.0"
 ```
 
 or add
 
 ```json
-"victor78/yii2-zipper": "~0.0.4"
+"victor78/yii2-zipper": "^1.0"
 ```
 
 to the require section of your composer.json.
@@ -79,29 +101,24 @@ $sevenZipArchiveEncrypted = Yii::$app->zipper->open('/tmp/archive.zip', '7zip', 
 $zipArchive->extract('/tmp/extracted/');
 ```
 
-When you configure zipper component with optional properties 'type' and 'password', they will be used as default fourth and fifth parameters in create method, and as default second and third parameters in open method. If you use parameters in this methods obviously, they will overwrite properties from the config.
-You can leave out properties in the config and the parameters in the methods at all - in this case Zipper will trying understand which adapter to use, but it doesn't work with 7zip archive.
+When you configure zipper component with optional properties 'type' and 'password', they will be used as default fourth and fifth parameters in the create method, and as default second and third parameters in the open method. If you use these parameters in the methods explicitly, they will overwrite the properties from the config.
+You can leave out the properties in the config and the parameters in the methods entirely - in this case Zipper will try to understand which adapter to use, but it doesn't work with a 7zip archive.
 
-Both this methods return Archive object. You can find the details about how to use this object and other information in documentation of [ZippyExt](https://github.com/victor78/ZippyExt) libruary.
-
-## Requirements
-* For zip type Zipper try to use console command zip or php zip extension, so one of them is required on server for zipping.
-* For tar, tar.gz, tar.bz2 Zipper try to use GNU tar and BSD tar, so one ofo them is required on server for these ways of arching.
-* For zipping by 7zip, the 7za utiliy is required on server. 
+Both methods return an Archive object. You can find the details about how to use this object and other information in the documentation of the [ZippyExt](https://github.com/victor78/ZippyExt) library.
 
 ## Установка
-Предпочтительным способом установки является при помощи [composer](http://getcomposer.org/download/).
+Предпочтительным способом установки является при помощи [composer](https://getcomposer.org/download/).
 
 Либо командой из консоли
 
 ```
-php composer.phar require --prefer-dist victor78/yii2-zipper:"~0.0.4"
+composer require victor78/yii2-zipper:"^1.0"
 ```
 
 либо включением в composer.json в секцию require.
 
 ```json
-"victor78/yii2-zipper": "~0.0.4"
+"victor78/yii2-zipper": "^1.0"
 ```
 
 ## Настройка
@@ -149,13 +166,14 @@ $sevenZipArchiveEncrypted = Yii::$app->zipper->open('/tmp/archive.zip', '7zip', 
 
 $zipArchive->extract('/tmp/extracted/');
 ```
-Если вы настроили компонент Zipper с опциональными свойствами 'type' и 'password', они будут использованы как дефолтные четвертый и пятый параметры с методе create и второй и третий параметры в методе open.
+Если вы настроили компонент Zipper с опциональными свойствами 'type' и 'password', они будут использованы как дефолтные четвёртый и пятый параметры в методе create и второй и третий параметры в методе open.
 Если эти параметры в этих методах указываются явно, то они переписывают свойства из конфига. 
 Вы можете опустить свойства из конфига и параметры в методах вообще - в таком случае Zipper попытается самостоятельно понять какой именно адаптер какого архиватора использовать, но это точно не будет работать в случае zip архива, созданного при помощи 7zip.
 
-Оба метода возвращают объект Archive. Вы можете найти детали о том, как использовать данный объект и другую информацию в документации к библотеке [ZippyExt](https://github.com/victor78/ZippyExt).
+Оба метода возвращают объект Archive. Вы можете найти детали о том, как использовать данный объект и другую информацию в документации к библиотеке [ZippyExt](https://github.com/victor78/ZippyExt).
 
 ## Требования
-* Для архивирования в чистый zip используется утилита zip или расширение PHP для zip, так что или утилита, или расширение должны быть установлены на сервере для упавки и разупаковки zip.
+* PHP >= 8.1, фреймворк Yii2 и пакет [ZippyExt](https://github.com/victor78/ZippyExt) `^1.0`.
+* Для архивирования в чистый zip используется утилита zip или расширение PHP для zip, так что или утилита, или расширение должны быть установлены на сервере для упаковки и распаковки zip.
 * Для tar, tar.gz, tar.bz2 Zipper пытается использовать GNU tar или BSD tar, один из них должен быть установлен на сервере для этих типов архивов.
-* Для упаковки/разупаковки zip при помощи 7zip, на сервере должа быть установлена утилита 7za.
+* Для упаковки/распаковки zip при помощи 7zip, на сервере должна быть установлена утилита `7za` или `7z`.
